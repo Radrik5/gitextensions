@@ -13,6 +13,12 @@ namespace GitUI.Editor
     {
         private readonly FindAndReplaceForm _findAndReplaceForm = new FindAndReplaceForm();
 
+        static FileViewerInternal()
+        {
+            // init custom syntax highlightings
+            HighlightingManager.Manager.AddSyntaxModeFileProvider(new GitExtensionsResourceSyntaxModeProvider());
+        }
+
         public FileViewerInternal()
         {
             InitializeComponent();
